@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Verifique seu E-mail - StudioMusic</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f6f6f6;
+            font-family: Arial;
+        }
+        .card {
+            max-width: 450px;
+            margin: 80px auto;
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid #e5e5e5;
+            background: white;
+            text-align: center;
+        }
+        h2 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .check-icon {
+            font-size: 55px;
+            color: #111;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card shadow-sm">
+    <div class="check-icon">📩</div>
+    <h2>Verifique seu E-mail</h2>
+    <p>
+        Enviamos um link de confirmação para o seu e-mail.<br>
+        Clique no link para ativar sua conta.
+    </p>
+
+    <a href="login-cliente.jsp" class="btn btn-dark mt-3">Voltar ao Login</a>
+</div>
+
+</body>
+</html>
