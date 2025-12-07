@@ -6,8 +6,7 @@ import jakarta.mail.internet.*;
 
 public class EmailService {
 
-    // Ajuste aqui quando mudar o nome do projeto ou colocar em produção
-    private static final String BASE_URL = "http://localhost:8080/teste";
+    private static final String BASE_URL = "http://localhost:8080/StudioMusicWeb";
 
     private final String HOST = "sandbox.smtp.mailtrap.io";
     private final int PORT = 587;

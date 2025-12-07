@@ -31,7 +31,7 @@ public class ClienteEsqueceuSenhaServlet extends HttpServlet {
         }
 
         // Criar link usando o EmailService
-        String link = "http://localhost:8080/teste/cliente/redefinir?token=" + token;
+        String link = "http://localhost:8080/StudioMusicWeb/cliente/redefinir?token=" + token;
 
         new EmailService().enviarEmail(
                 email,
