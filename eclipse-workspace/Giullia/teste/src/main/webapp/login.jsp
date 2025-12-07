@@ -21,10 +21,13 @@
             border-radius: 12px;
             width: 360px;
         }
-        .logo {
-            font-size: 32px;
-            font-weight: bold;
-            color: #1976D2;
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            max-width: 150px; 
+            height: auto;
         }
     </style>
 </head>
@@ -33,7 +36,10 @@
 
 <div class="card shadow p-4">
 
-    <h3 class="text-center mb-3 logo">StudioMusic</h3>
+	<div class="logo-container">
+        <img src="assets/logo.png" alt="StudioMusic Logo"> 
+    </div>
+
     <h5 class="text-center mb-4">Login Admin</h5>
 
     <div class="mb-3">

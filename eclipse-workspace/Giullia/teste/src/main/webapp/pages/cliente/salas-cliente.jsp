@@ -8,12 +8,10 @@
 
 <%
     SalaDAO salaDAO = new SalaDAO();
-    // Use try-catch para lidar com possíveis exceções do DAO
     List<Sala> salas = null;
     try {
-        salas = salaDAO.listarSalas(); // usa seu DAO existente
+        salas = salaDAO.listarSalas(); 
     } catch (Exception e) {
-        // Logar ou tratar a exceção adequadamente
         e.printStackTrace();
     }
 %>
@@ -21,7 +19,6 @@
 <header><title>Salas Disponíveis | StudioMusic</title></header>
 
 <style>
-    /* Cores da Landing Page */
     :root {
         --roxo-principal: #4B0082; /* Indigo Profundo */
         --roxo-secundario: #8A2BE2; /* Violeta */
@@ -29,17 +26,16 @@
         --texto-escuro: #333333;
     }
 
-    /* O header.jsp já define o padding-top no body */
 
     .conteudo {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 30px; /* Mantendo o padding para o conteúdo principal */
+        padding: 30px; 
     }
 
     .card-listagem {
         background: white;
-        padding: 40px; /* Mais espaçoso */
+        padding: 40px; 
         border-radius: 12px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
@@ -60,7 +56,6 @@
         color: var(--texto-escuro) !important;
     }
 
-    /* Estilo dos Cards de Sala */
     .sala-item {
         background: var(--fundo-claro); /* Fundo sutilmente cinza */
         border: 1px solid #ddd;
@@ -118,7 +113,6 @@
         color: white;
     }
 
-    /* Mensagem de erro/vazio */
     .text-danger {
         color: #dc3545 !important;
         font-size: 1.1rem;

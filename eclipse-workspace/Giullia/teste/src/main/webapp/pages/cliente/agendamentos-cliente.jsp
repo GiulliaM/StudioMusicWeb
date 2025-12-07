@@ -13,9 +13,7 @@
     try {
         lista = new AgendamentoDAO().listarPorCliente(cliente.getId_cliente());
     } catch (Exception e) {
-        // Em caso de erro ao carregar a lista
         lista = java.util.Collections.emptyList();
-        // Considere logar o erro aqui: e.printStackTrace();
     }
     
     // Formatador de moeda
@@ -25,68 +23,74 @@
 <header><title>Meus Agendamentos | StudioMusic</title></header>
 
 <style>
-    /* Estilos específicos da página de agendamentos */
     
-    /* Variaveis Globais (Recomendado no header.jsp, mas repetidas aqui para contexto) */
     :root {
-        --fundo-principal: #0A0A0A;
-        --fundo-card: #181818;
-        --destaque-ciano: #00FFFF;
-        --texto-claro: #F0F0F0;
-        --texto-secundario: #AAAAAA;
-        --texto-link: #CCCCCC;
+        --roxo-principal: #4B0082;
+        --roxo-secundario: #8A2BE2; 
+        --fundo-claro: #F8F8F8;
+        --texto-escuro: #333333;
+    }
+
+    body {
+        background-color: var(--fundo-claro); 
+        color: var(--texto-escuro);
     }
 
     .conteudo {
-        max-width: 1300px; /* Mais largo para a tabela */
+        max-width: 1300px;
         margin: 0 auto;
         padding: 30px;
     }
 
-    .card {
-        padding: 40px !important;
-        background: var(--fundo-card) !important;
-        border: 1px solid #333 !important;
+    .card-agendamentos {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        border: 1px solid #eee;
     }
     
-    .card h3 {
-        /* Garante que o título seja grande e em cor clara */
+    .card-agendamentos h3 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        color: var(--roxo-principal);
+        border-bottom: 3px solid var(--roxo-secundario);
+        padding-bottom: 5px;
+        display: inline-block;
+        margin-bottom: 25px !important;
         font-size: 2.2rem;
-        margin-bottom: 20px !important;
-        color: var(--texto-claro) !important;
     }
 
-    /* Tabela Dark Mode */
     .table {
-        background-color: var(--fundo-card);
-        color: var(--texto-claro);
-        border: 1px solid #333;
+        background-color: white;
+        color: var(--texto-escuro);
+        border: 1px solid #ddd;
     }
     
     .table thead th {
-        background-color: var(--fundo-principal) !important; 
-        color: white !important;
-        border-color: #333 !important;
+        background-color: var(--roxo-principal) !important; 
+        color: white !important; 
+        border-color: #6a0dad !important; 
         font-weight: 700;
         text-transform: uppercase;
         font-size: 0.9rem;
     }
     
-    .table tbody tr {
-        transition: background-color 0.3s;
-    }
-
     .table tbody tr:hover {
-        background-color: #252525; /* Destaque sutil na linha */
+        background-color: #f0f0f0; 
     }
 
     .table tbody td {
-        border-color: #333;
+        border-color: #ddd;
         vertical-align: middle;
         font-size: 0.95rem;
     }
     
-    /* Cores do Status */
+    .valor-total {
+        font-weight: 700;
+        color: var(--roxo-secundario); 
+    }
+    
     .status-badge {
         font-weight: 600;
         padding: 5px 10px;
@@ -94,55 +98,68 @@
         font-size: 0.85rem;
         text-transform: uppercase;
     }
-    /* Estilos Semelhantes ao Ciano/Tema */
-    .status-CONFIRMADO { background: #3CB371; color: white; } /* Verde - Confirmado */
-    .status-PENDENTE { background: #FFC107; color: #333; } /* Amarelo - Pendente */
-    .status-CANCELADO { background: #FF6347; color: white; } /* Vermelho - Cancelado */
+    .status-REALIZADO { background: #28a745; color: white; } 
+    .status-PENDENTE { background: #ffc107; color: #333; } 
+    .status-CANCELADO { background: #dc3545; color: white; } 
 
-    /* Botões de Ação na Tabela */
-    .btn-action-ciano {
-        /* Estilo do botão primário (Editar) */
-        background-color: var(--destaque-ciano);
-        border-color: var(--destaque-ciano);
-        color: black;
-        font-weight: 700;
+    .btn-action-roxo {
+        background-color: var(--roxo-principal);
+        border-color: var(--roxo-principal);
+        color: white;
+        font-weight: 600;
         transition: all 0.3s;
+        padding: 6px 12px;
+        border-radius: 6px;
     }
-    .btn-action-ciano:hover {
-        background-color: transparent;
-        color: var(--destaque-ciano);
+    .btn-action-roxo:hover {
+        background-color: var(--roxo-secundario);
+        border-color: var(--roxo-secundario);
     }
 
     .btn-action-danger {
-        /* Estilo do botão de cancelamento */
-        background-color: #FF6347; /* Vermelho forte para Cancelar */
-        border-color: #FF6347;
+        background-color: #dc3545; 
+        border-color: #dc3545;
         color: white;
         font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 6px;
     }
     .btn-action-danger:hover {
-        background-color: #CC4C36;
-        border-color: #CC4C36;
-        color: white;
+        background-color: #c82333;
+        border-color: #c82333;
     }
     
-    /* Valor Total em Destaque */
-    .valor-total {
-        font-weight: 700;
-        color: var(--destaque-ciano);
+    .empty-message {
+        border: 1px dashed #ccc;
+        border-radius: 8px;
+        padding: 30px;
+        margin-top: 20px;
+        text-align: center;
+        background-color: white;
+    }
+    .empty-message a {
+        background: var(--roxo-principal);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .empty-message a:hover {
+        background: var(--roxo-secundario);
     }
 </style>
 
 <div class="conteudo">
 
-    <div class="card shadow-sm">
+    <div class="card-agendamentos shadow-sm">
         <h3>Meus Agendamentos</h3>
 
         <% if (lista.isEmpty()) { %>
-            <div class="p-4 text-center mt-3" style="border: 1px solid #333; border-radius: 8px; background: #252525;">
-                <i class="bi bi-calendar-x-fill display-4" style="color: var(--texto-secundario);"></i>
-                <p class="mt-3 fs-5" style="color: var(--texto-secundario);">Você não possui agendamentos ativos.</p>
-                <a href="salas-cliente.jsp" class="btn-main-action mt-3">
+            <div class="empty-message">
+                <i class="bi bi-calendar-x-fill display-4" style="color: var(--roxo-secundario);"></i>
+                <p class="mt-3 fs-5" style="color: var(--texto-escuro);">Você não possui agendamentos ativos.</p>
+                <a href="salas-cliente.jsp" class="mt-3">
                     <i class="bi bi-mic-fill me-2"></i> Agendar uma Sala Agora
                 </a>
             </div>
@@ -156,7 +173,7 @@
                             <th><i class="bi bi-clock"></i> Início</th>
                             <th><i class="bi bi-clock"></i> Fim</th>
                             <th><i class="bi bi-check2-circle"></i> Status</th>
-                            <th><i class="bi bi-currency-dollar"></i> Valor Total</th>
+                            <th>Valor Total</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -175,7 +192,7 @@
                             </td>
                             <td class="valor-total">R$ <%= df.format(a.getValor_total()) %></td>
                             <td>
-                                <a href="editar-agendamento.jsp?id=<%= a.getId_agendamento() %>" class="btn btn-sm btn-action-ciano me-2">
+                                <a href="editar-agendamento.jsp?id=<%= a.getId_agendamento() %>" class="btn btn-sm btn-action-roxo me-2">
                                     <i class="bi bi-pencil-fill"></i> Editar
                                 </a>
                             

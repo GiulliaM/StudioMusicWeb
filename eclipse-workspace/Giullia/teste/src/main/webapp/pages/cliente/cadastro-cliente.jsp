@@ -11,29 +11,26 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-        /* Cores da Landing Page */
         :root {
-            --roxo-principal: #4B0082; /* Indigo Profundo */
-            --roxo-secundario: #8A2BE2; /* Violeta */
+            --roxo-principal: #4B0082; 
+            --roxo-secundario: #8A2BE2; 
             --fundo-claro: #F8F8F8;
             --texto-escuro: #333333;
         }
 
         body {
-            /* Fundo claro com gradiente sutil */
             background: linear-gradient(135deg, var(--fundo-claro) 90%, rgba(75, 0, 130, 0.1));
             display: flex;
             justify-content: center;
             align-items: center;
-            /* Usamos min-height para garantir que a página toda seja visível se o formulário for longo */
             min-height: 100vh; 
             font-family: 'Inter', sans-serif;
             color: var(--texto-escuro);
-            padding: 20px 0; /* Padding para o conteúdo não tocar nas bordas */
+            padding: 20px 0; 
         }
 
         .register-card {
-            width: 480px; /* Pouco mais largo para acomodar o formulário completo */
+            width: 480px; 
             padding: 40px;
             border-radius: 15px;
             background: white;
@@ -48,7 +45,6 @@
             margin-bottom: 30px !important;
         }
 
-        /* Logo */
         .logo-container {
             text-align: center;
             margin-bottom: 20px;
@@ -58,13 +54,11 @@
             height: auto;
         }
 
-        /* Estilização dos inputs */
         .form-control:focus {
             border-color: var(--roxo-secundario);
             box-shadow: 0 0 0 0.25rem rgba(138, 43, 226, 0.25);
         }
 
-        /* Botão principal (Substituindo btn-success pelo tema roxo) */
         .btn-primary {
             background: var(--roxo-principal);
             border-color: var(--roxo-principal);
@@ -77,7 +71,6 @@
             border-color: var(--roxo-secundario);
         }
 
-        /* Links */
         .register-card a {
             color: var(--roxo-principal);
             text-decoration: none;
@@ -89,10 +82,9 @@
             text-decoration: underline;
         }
 
-        /* Mensagem de erro */
         .text-danger {
             font-weight: 600;
-            color: #d9534f !important; /* Cor de erro padrão */
+            color: #d9534f !important; 
         }
     </style>
 </head>

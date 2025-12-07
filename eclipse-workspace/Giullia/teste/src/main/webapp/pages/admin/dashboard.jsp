@@ -137,7 +137,6 @@
 </div>
 
 <script>
-    // Gráfico Chart.js
     const ctx = document.getElementById('graficoMeses').getContext('2d');
 
     new Chart(ctx, {

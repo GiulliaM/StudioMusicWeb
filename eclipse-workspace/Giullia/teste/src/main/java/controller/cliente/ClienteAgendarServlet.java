@@ -61,7 +61,6 @@ public class ClienteAgendarServlet extends HttpServlet {
 
         dao.cadastrarAgendamento(ag);
 
-        // REDIRECIONAMENTO CORRETO
         response.sendRedirect(request.getContextPath() + "/pages/cliente/agendamentos-cliente.jsp");
     }
 }

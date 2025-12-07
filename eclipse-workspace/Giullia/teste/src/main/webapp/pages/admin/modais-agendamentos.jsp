@@ -7,7 +7,6 @@
     java.util.List salas = salaDAO.listarSalas();
 %>
 
-<!-- Modal Cadastrar -->
 <div class="modal fade" id="modalCadastrar" tabindex="-1">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">

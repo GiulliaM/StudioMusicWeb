@@ -55,7 +55,6 @@
 </div>
 
 
-<!-- Modal Editar Sala -->
 <div class="modal fade" id="modalEditar" tabindex="-1">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -113,8 +112,6 @@
   </div>
 </div>
 
-
-<!-- Funções JS -->
 <script>
 
     function editarSala(id, nome, numero, capacidade, equipamentos, valor) {

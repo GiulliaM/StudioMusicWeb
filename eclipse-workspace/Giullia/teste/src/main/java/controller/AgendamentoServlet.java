@@ -28,17 +28,19 @@ public class AgendamentoServlet extends HttpServlet {
             Duration dur = Duration.between(inicio, fim);
             long minutos = dur.toMinutes();
             double horas = minutos / 60.0;
-            if (horas <= 0) {
-                return 0.0;
-            }
+
+            if (horas <= 0) return 0.0;
+
             double total = valorHora * horas;
             BigDecimal bd = BigDecimal.valueOf(total).setScale(2, RoundingMode.HALF_UP);
             return bd.doubleValue();
+
         } catch (Exception e) {
             return 0.0;
         }
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -46,6 +48,7 @@ public class AgendamentoServlet extends HttpServlet {
         String acao = request.getParameter("acao");
         AgendamentoDAO dao = new AgendamentoDAO();
         SalaDAO salaDAO = new SalaDAO();
+
 
         if ("cadastrar".equals(acao)) {
             try {
@@ -56,22 +59,27 @@ public class AgendamentoServlet extends HttpServlet {
                 Time hora_fim = Time.valueOf(request.getParameter("hora_fim"));
                 String status = request.getParameter("status");
 
-                // pegar valor_hora da sala
                 Sala s = salaDAO.buscarSalaPorId(id_sala);
                 double valorHora = (s != null) ? s.getValor_hora() : 0.0;
 
                 double valor_total = calcularValorTotal(valorHora, hora_inicio, hora_fim);
 
-                Agendamento a = new Agendamento(0, id_cliente, id_sala, data, hora_inicio, hora_fim, status, valor_total);
+                Agendamento a = new Agendamento(
+                        0, id_cliente, id_sala, data, hora_inicio, hora_fim, status, valor_total
+                );
                 dao.cadastrarAgendamento(a);
 
-            } catch (IllegalArgumentException | DateTimeParseException e) {
-                System.out.println("Erro ao parsear data/horário: " + e.getMessage());
+            } catch (Exception e) {
+                System.out.println("Erro ao cadastrar agendamento: " + e.getMessage());
             }
+
             response.sendRedirect("pages/admin/agendamentos.jsp");
             return;
         }
 
+        /* ============================
+                    E D I T A R
+           ============================ */
         if ("editar".equals(acao)) {
             try {
                 int id_agendamento = Integer.parseInt(request.getParameter("id_agendamento"));
@@ -87,30 +95,41 @@ public class AgendamentoServlet extends HttpServlet {
 
                 double valor_total = calcularValorTotal(valorHora, hora_inicio, hora_fim);
 
-                Agendamento a = new Agendamento(id_agendamento, id_cliente, id_sala, data, hora_inicio, hora_fim, status, valor_total);
+                Agendamento a = new Agendamento(
+                        id_agendamento, id_cliente, id_sala,
+                        data, hora_inicio, hora_fim, status, valor_total
+                );
+
                 dao.editarAgendamento(a);
 
             } catch (Exception e) {
-                System.out.println("Erro editar agendamento: " + e.getMessage());
+                System.out.println("Erro ao editar agendamento: " + e.getMessage());
             }
+
             response.sendRedirect("pages/admin/agendamentos.jsp");
             return;
         }
     }
 
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         String acao = request.getParameter("acao");
         AgendamentoDAO dao = new AgendamentoDAO();
 
         if ("excluir".equals(acao)) {
             try {
                 int id = Integer.parseInt(request.getParameter("id_agendamento"));
-                dao.excluirAgendamento(id);
+
+                dao.atualizarStatusNoBanco(id, "Cancelado");
+
             } catch (NumberFormatException e) {
-                System.out.println("Erro excluir agendamento: " + e.getMessage());
+                System.out.println("Erro ao cancelar agendamento: " + e.getMessage());
             }
         }
+
         response.sendRedirect("pages/admin/agendamentos.jsp");
     }
 }

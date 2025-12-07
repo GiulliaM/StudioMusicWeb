@@ -14,7 +14,6 @@ public class Agendamento implements Serializable {
     private String status;
     private double valor_total;
 
-    // Campos auxiliares (não persistidos diretamente na tabela)
     private String nome_cliente;
     private String nome_sala;
 
@@ -33,7 +32,6 @@ public class Agendamento implements Serializable {
         this.valor_total = valor_total;
     }
 
-    // Getters e setters (snake_case)
     public int getId_agendamento() { return id_agendamento; }
     public void setId_agendamento(int id_agendamento) { this.id_agendamento = id_agendamento; }
 
@@ -58,7 +56,6 @@ public class Agendamento implements Serializable {
     public double getValor_total() { return valor_total; }
     public void setValor_total(double valor_total) { this.valor_total = valor_total; }
 
-    // auxiliares
     public String getNome_cliente() { return nome_cliente; }
     public void setNome_cliente(String nome_cliente) { this.nome_cliente = nome_cliente; }
 

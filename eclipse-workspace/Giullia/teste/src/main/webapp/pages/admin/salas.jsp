@@ -118,10 +118,8 @@
 
 </div>
 
-<!-- MODAIS -->
 <%@ include file="modais-salas.jsp" %>
 
-<!-- Sala JS -->
 <script>
 	function editarSala(id, nome, numero, capacidade, equipamentos, valor) {
 	

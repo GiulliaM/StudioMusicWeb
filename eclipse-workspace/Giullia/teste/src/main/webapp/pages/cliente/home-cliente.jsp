@@ -26,7 +26,7 @@
 
     .card-home {
         background: white !important;
-        padding: 40px !important; /* Mais espaçoso */
+        padding: 40px !important; 
         border-radius: 12px !important;
         border: 1px solid #eee !important;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
@@ -35,7 +35,7 @@
     .card-home h4 {
         font-family: 'Montserrat', sans-serif;
         font-weight: 800;
-        color: var(--roxo-principal); /* Título roxo */
+        color: var(--roxo-principal); 
         border-bottom: 3px solid var(--roxo-secundario);
         padding-bottom: 5px;
         display: inline-block;

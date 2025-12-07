@@ -50,7 +50,6 @@
 </div>
 
 
-<!-- Modal Editar Cliente -->
 <div class="modal fade" id="modalEditar" tabindex="-1">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">

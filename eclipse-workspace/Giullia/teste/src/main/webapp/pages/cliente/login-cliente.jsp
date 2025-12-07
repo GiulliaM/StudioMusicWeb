@@ -11,16 +11,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
-        /* Cores da Landing Page */
         :root {
-            --roxo-principal: #4B0082; /* Indigo Profundo */
-            --roxo-secundario: #8A2BE2; /* Violeta */
+            --roxo-principal: #4B0082; 
+            --roxo-secundario: #8A2BE2; 
             --fundo-claro: #F8F8F8;
             --texto-escuro: #333333;
         }
 
         body {
-            /* Usando um fundo claro, mas com um gradiente sutil de roxo */
             background: linear-gradient(135deg, var(--fundo-claro) 90%, rgba(75, 0, 130, 0.1));
             display: flex;
             justify-content: center;
@@ -31,7 +29,7 @@
         }
 
         .login-card {
-            width: 400px; /* Pouco mais largo */
+            width: 400px; 
             padding: 40px;
             border-radius: 15px;
             background: white;
@@ -46,13 +44,11 @@
             margin-bottom: 30px !important;
         }
 
-        /* Estilização dos inputs */
         .form-control:focus {
             border-color: var(--roxo-secundario);
             box-shadow: 0 0 0 0.25rem rgba(138, 43, 226, 0.25);
         }
 
-        /* Botão principal com a cor roxa */
         .btn-primary {
             background: var(--roxo-principal);
             border-color: var(--roxo-principal);
@@ -65,7 +61,6 @@
             border-color: var(--roxo-secundario);
         }
 
-        /* Links */
         .login-card a {
             color: var(--roxo-principal);
             text-decoration: none;
@@ -77,20 +72,18 @@
             text-decoration: underline;
         }
 
-        /* Logo */
         .logo-container {
             text-align: center;
             margin-bottom: 20px;
         }
         .logo-container img {
-            max-width: 150px; /* Ajuste o tamanho da logo */
+            max-width: 150px; 
             height: auto;
         }
 
-        /* Mensagem de erro */
         .text-danger {
             font-weight: 600;
-            color: #d9534f !important; /* Cor de erro padrão */
+            color: #d9534f !important; 
         }
     </style>
 </head>
@@ -100,7 +93,7 @@
 <div class="login-card shadow">
     
     <div class="logo-container">
-        <img src="../../assets/logo.png" alt="StudioMusic Logo"> 
+	<img src="<%= request.getContextPath() %>/assets/logo.png" alt="StudioMusic Logo">
     </div>
 
     <h3 class="text-center">Acesse sua Conta</h3>

@@ -55,8 +55,6 @@ public class Usuario implements Serializable {
         this.emailVerificado = false;
         this.tokenVerificacao = null;
     }
-
-    // ================= GETTERS & SETTERS =================
     
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }

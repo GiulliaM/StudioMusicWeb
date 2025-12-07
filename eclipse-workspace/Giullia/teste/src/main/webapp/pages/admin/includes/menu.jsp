@@ -3,7 +3,7 @@
         width: 230px;
         height: 100vh;
         position: fixed;
-        top: 70px; /* abaixo do topo */
+        top: 70px; 
         left: 0;
         background: white;
         border-right: 1px solid #ddd;
@@ -28,7 +28,7 @@
     }
 
     .conteudo-admin {
-        margin-left: 250px; /* espaço da sidebar */
+        margin-left: 250px; 
         padding: 25px;
     }
 
@@ -45,12 +45,12 @@
 
 <div class="menu-lateral shadow-sm">
 
-    <a href="dashboard.jsp">🏠 Dashboard</a>
+    <a href="dashboard.jsp">Dashboard</a>
 
-    <a href="salas.jsp">🎤 Salas</a>
+    <a href="salas.jsp">Salas</a>
 
-    <a href="clientes.jsp">👤 Clientes</a>
+    <a href="clientes.jsp">Clientes</a>
 
-    <a href="agendamentos.jsp">📅 Agendamentos</a>
+    <a href="agendamentos.jsp">Agendamentos</a>
 
 </div>

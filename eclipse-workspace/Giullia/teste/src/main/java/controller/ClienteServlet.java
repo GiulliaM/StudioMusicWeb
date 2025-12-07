@@ -20,7 +20,6 @@ public class ClienteServlet extends HttpServlet {
         String acao = request.getParameter("acao");
         ClienteDAO dao = new ClienteDAO();
 
-        // CADASTRAR CLIENTE (ADMIN)
         if ("cadastrar".equals(acao)) {
 
             Cliente c = new Cliente();
@@ -37,7 +36,6 @@ public class ClienteServlet extends HttpServlet {
             return;
         }
 
-        // EDITAR CLIENTE (ADMIN)
         if ("editar".equals(acao)) {
 
             Cliente c = new Cliente();
@@ -63,7 +61,6 @@ public class ClienteServlet extends HttpServlet {
         String acao = request.getParameter("acao");
         ClienteDAO dao = new ClienteDAO();
 
-        // EXCLUIR CLIENTE (ADMIN)
         if ("excluir".equals(acao)) {
             int id = Integer.parseInt(request.getParameter("id_cliente"));
             dao.excluirCliente(id);

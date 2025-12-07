@@ -126,6 +126,27 @@ public class SalaDAO {
         }
         return null;
     }
+    
+    public double buscarValorHora(int idSala) {
+        String sql = "SELECT valor_hora FROM salas WHERE id_sala = ?";
+
+        try (Connection conn = ConexaoDB.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, idSala);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getDouble("valor_hora");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar valor/hora: " + e.getMessage());
+        }
+
+        return 0.0;
+    }
+
 
 
 }
