@@ -20,8 +20,8 @@
 
 <style>
     :root {
-        --roxo-principal: #4B0082; /* Indigo Profundo */
-        --roxo-secundario: #8A2BE2; /* Violeta */
+        --roxo-principal: #4B0082; 
+        --roxo-secundario: #8A2BE2; 
         --fundo-claro: #F8F8F8;
         --texto-escuro: #333333;
     }
@@ -57,7 +57,7 @@
     }
 
     .sala-item {
-        background: var(--fundo-claro); /* Fundo sutilmente cinza */
+        background: var(--fundo-claro); 
         border: 1px solid #ddd;
         padding: 25px;
         margin-bottom: 20px;
@@ -96,7 +96,6 @@
         margin-top: 10px;
     }
 
-    /* Botão Roxo */
     .btn-roxo {
         background: var(--roxo-principal);
         color: white;
@@ -138,11 +137,11 @@
                                 <h5><%= s.getNome_tipo() %></h5>
                                 
                                 <p class="text-muted mb-3">
-                                    <i class="bi bi-person-fill me-1"></i> Capacidade: **<%= s.getCapacidade() %> pessoas** <br>
+                                    <i class="bi bi-person-fill me-1"></i> Capacidade: <%= s.getCapacidade() %> pessoas <br>
                                 </p>
                                 
                                 <p class="mb-3" style="font-size: 0.95rem;">
-                                    <i class="bi bi-gear-fill me-1"></i> **Equipamentos:** <%= s.getEquipamentos().substring(0, Math.min(s.getEquipamentos().length(), 60)) %>...
+                                    <i class="bi bi-gear-fill me-1"></i> Equipamentos: <%= s.getEquipamentos().substring(0, Math.min(s.getEquipamentos().length(), 60)) %>...
                                 </p>
                                 
                                 <span class="valor">R$ <%= String.format("%.2f", s.getValor_hora()) %>/hora</span>
